@@ -4,6 +4,7 @@
     <v-content>
 
     </v-content>
+    <compfooter></compfooter>
   </v-app>
 </template>
 

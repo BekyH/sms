@@ -10,9 +10,11 @@
   "dependencies": {
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
+    "vue-material-design-icons": "^4.1.0",
     "vuetify": "^2.0.0"
   },
   "devDependencies": {
+    "@mdi/font": "^4.4.95",
     "@vue/cli-plugin-babel": "^3.11.0",
     "@vue/cli-plugin-eslint": "^3.11.0",
     "@vue/cli-service": "^3.11.0",
