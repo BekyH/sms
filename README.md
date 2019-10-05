@@ -27,3 +27,9 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+and this project uses vuetify using the command
+  vue add vuetify
+  and uses material design icons 
+  npm install @mdi/font -D
+  
+
