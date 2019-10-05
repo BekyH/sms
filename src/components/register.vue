@@ -7,16 +7,16 @@
                 <v-flex offset-1>
                 <div class="textfield">
                     
-                <v-text-field label="FirstName" :rules="FnameRules" required></v-text-field>
-                <v-text-field label="LastName" :rules="LnameRules" required></v-text-field>
-                <v-text-field label="section"  :rules="sectionRules"></v-text-field>
-                <v-text-field label="email" required :rules="emailRules"></v-text-field>
-                <v-text-field label="phoneno" required :rules="PhoneNoRules"></v-text-field>
-                <v-select label="Gender" :items="options"></v-select>
+                <v-text-field label="FirstName" :rules="FnameRules" required v-model="student.firstname"></v-text-field>
+                <v-text-field label="LastName" :rules="LnameRules" required v-model="student.lastname"></v-text-field>
+                <v-text-field label="section"  :rules="sectionRules" v-model="student.section"></v-text-field>
+                <v-text-field label="email" required :rules="emailRules" v-model="student.email"></v-text-field>
+                <v-text-field label="phoneno" required :rules="PhoneNoRules" v-model="student.phoneno"></v-text-field>
+                <v-select label="Gender" :items="options" :rules="[v => !!v || ' Gender is required']" v-model="student.gender"></v-select>
                     
                 </div>
                 <v-card-actions>
-                    <v-btn color="primary">Submit</v-btn>
+                    <v-btn color="primary" @click="createStudent">Submit</v-btn>
                 </v-card-actions>
                 </v-flex>
             </v-form>
@@ -31,6 +31,7 @@
 </style>
 
 <script>
+const url = 'http://localhost:3000/api/students';
 export default {
     data: () => ({
         options:[
@@ -58,6 +59,30 @@ export default {
           (v) => !!v || 'section is required',
          
         ],
-    })
+        student:{
+            firstname:'',
+            lastname:'',
+            email:'',
+            gender:'',
+            section:'',
+            phoneno:''
+        }
+    }),
+    methods:{
+        createStudent(){
+            this.$refs.form.validate();
+            let method;
+            fetch(url,{
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                method:'POST',
+                body:JSON.stringify(this.student)
+            }).then(res=>res.json())
+            .then(res=>{
+                this.$refs.form.reset();
+            })
+        }
+    }
 }
 </script>
