@@ -31,5 +31,6 @@ and this project uses vuetify using the command
   vue add vuetify
   and uses material design icons 
   npm install @mdi/font -D
-  
+  to install vuerouter
+  npm install vue-router
 
