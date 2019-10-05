@@ -33,4 +33,5 @@ and this project uses vuetify using the command
   npm install @mdi/font -D
   to install vuerouter
   npm install vue-router
+this project uses  a loopback api server is found at https://github.com/BekyH/smsserver
 
